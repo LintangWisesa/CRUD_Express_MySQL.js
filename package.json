@@ -1,0 +1,20 @@
+{
+  "name": "exp_mysql",
+  "version": "1.0.0",
+  "description": "tes koneksi express - mysql",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "express",
+    "backend",
+    "nodejs",
+    "mysql"
+  ],
+  "author": "lintangwisesa",
+  "license": "ISC",
+  "dependencies": {
+    "mysql": "^2.16.0"
+  }
+}

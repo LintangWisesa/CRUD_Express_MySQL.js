@@ -1,7 +1,9 @@
 var express = require('express')
 var cors = require('cors')
+var route_mysql = require('./router/route_mysql')
 
 var app = express()
+app.use(route_mysql)
 app.use(cors())
 
 app.get('/', (req, res)=>{

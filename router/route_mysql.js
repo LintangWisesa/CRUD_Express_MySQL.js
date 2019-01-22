@@ -92,4 +92,17 @@ router.put('/data/:id', (req, res)=>{
     })
 })
 
+// DELETE data by id
+router.delete('/data/:id', (req, res)=>{
+    var dbStat = 'delete from products where id = ?'
+    db.query(dbStat, req.params.id, (error, output) => {
+        if(error){
+            console.log(error)
+        } else {
+            console.log(output)
+            res.send(output)
+        }
+    })
+})
+
 module.exports = router

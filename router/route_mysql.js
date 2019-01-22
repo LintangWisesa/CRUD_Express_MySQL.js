@@ -55,7 +55,39 @@ router.post('/data', (req, res)=>{
             res.send(error)
         } else {
             console.log(output)
-            res.send(output)
+            res.send({
+                product_name: req.body.nama,
+                price: req.body.harga,
+                info: req.body.info,
+                quantity: req.body.jumlah,
+                status: 'Data terkirim' 
+            })
+        }
+    })
+})
+
+// PUT edit data by id
+router.put('/data/:id', (req, res)=>{
+    var dbStat = 'update products set ? where id = ?'
+    var data = {
+        product_name: req.body.nama,
+        price: req.body.harga,
+        info: req.body.info,
+        quantity: req.body.jumlah
+    }
+    db.query(dbStat, [data, req.params.id], (error, output) => {
+        if(error){
+            console.log(error)
+            res.send(error)
+        } else {
+            console.log(output)
+            res.send({
+                product_name: req.body.nama,
+                price: req.body.harga,
+                info: req.body.info,
+                quantity: req.body.jumlah,
+                status: 'Data terupdate' 
+            })
         }
     })
 })

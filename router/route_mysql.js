@@ -40,6 +40,24 @@ router.get('/data/:id', (req, res) => {
     })
 })
 
-
+// POST data
+router.post('/data', (req, res)=>{
+    var dbStat = 'insert into products set ?'
+    var data = {
+        product_name: req.body.nama,
+        price: req.body.harga,
+        info: req.body.info,
+        quantity: req.body.jumlah
+    }
+    db.query(dbStat, data, (error, output) => {
+        if(error){
+            console.log(error)
+            res.send(error)
+        } else {
+            console.log(output)
+            res.send(output)
+        }
+    })
+})
 
 module.exports = router
